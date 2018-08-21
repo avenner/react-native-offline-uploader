@@ -1,0 +1,37 @@
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.hasProperty('compileSdkVersion') ? project.compileSdkVersion : 26
+    buildToolsVersion project.hasProperty('buildToolsVersion') ? project.buildToolsVersion : "26.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion project.hasProperty('targetSdkVersion') ? project.targetSdkVersion : 26
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+}
+  
